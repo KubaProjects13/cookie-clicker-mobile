@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title id="title">Cookie Clicker</title>
+    <link rel="stylesheet" href="style/ui.css">
+    <link rel="stylesheet" href="style/static.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+</head>
+
+<body ontouchstart="">
+
+    <div id="page1" class="page">
+        <div class="topbar">
+            <div class="topbar-side">
+                <button class="topbar-button-disabled">Back</button>
+            </div>
+            
+            <h1 class="topbar-title">Home</h1>
+            
+            <div class="topbar-side">
+                <button class="topbar-button nav-button" data-page="page3">Settings</button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="divwidth">
+                <span id="labelcounter-home" style="color: #281e07; font-size: 30px;">0</span>
+            </div>
+            <div class="divwidth">
+                <span id="labelper-home" style="color: #3b2d0b;"></span>
+            </div>
+
+            <div id="clicker-container">
+                <img src="img/cookie 300x300.png" alt="" id="clicker" class="spinning" height="0px">
+            </div>
+
+            <div id="cookies-container"></div>
+        </div>
+    </div>
+
+    <div id="page2" class="page">
+        <div class="topbar">
+            <div class="topbar-side">
+                <button class="topbar-button" id="backtohome">Back</button>
+            </div>
+            
+            <h1 class="topbar-title">Shop</h1>
+            
+            <div class="topbar-side">
+                <button class="topbar-button nav-button" data-page="page3">Settings</button>
+            </div>
+        </div>
+
+        <div id="shopcontent">
+            <div class="divwidth">
+                <span id="labelcounter-shop" style="color: #281e07; font-size: 30px;">0</span>
+            </div>
+            <div class="divwidth">
+                <span id="labelper-shop" style="color: #3b2d0b;"></span>
+            </div>
+
+            <div class="widget" id="cursor-widget">
+                <div class="divwidth">
+                    <h2 id="cursorlabel">Cursor</h2>
+                </div>
+                
+                <div class="divwidth">
+                    <p id="cursorcost">Cost: 20 Cookies</p>
+                    <p>+1 cookie per click</p>
+                </div>
+                <button id="cursor">Buy</button>
+            </div>
+
+            <div class="widget" id="grandma-widget">
+                <div class="divwidth">
+                    <h2 id="grandmalabel">Grandma</h2>
+                </div>
+                
+                <div class="divwidth">
+                    <p id="grandmacost">Cost: 100 Cookies</p>
+                    <p>+2 cookies per second</p>
+                </div>
+                <button id="grandma">Buy</button>
+            </div>
+
+            <div class="widget" id="farm-widget">
+                <div class="divwidth">
+                    <h2 id="farmlabel">Grandma</h2>
+                </div>
+                
+                <div class="divwidth">
+                    <p id="farmcost">Cost: 1000 Cookies</p>
+                    <p>+20 cookies per second</p>
+                </div>
+                <button id="farm">Buy</button>
+            </div>
+
+            <div class="widget" id="mine-widget">
+                <div class="divwidth">
+                    <h2 id="minelabel">Mine</h2>
+                </div>
+                
+                <div class="divwidth">
+                    <p id="minecost">Cost: 12000 Cookies</p>
+                    <p>+50 cookies per second</p>
+                </div>
+                <button id="mine">Buy</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="page3" class="page">
+        <div class="topbar">
+            <div class="topbar-side">
+                <button class="topbar-button" id="backtohome">Back</button>
+            </div>
+            
+            <h1 class="topbar-title">Settings</h1>
+            
+            <div class="topbar-side"></div>
+        </div>
+
+        <div class="content">
+            <div class="widget">
+                <h2>DEBUG</h2>
+                <p>ctrl+shift+s for debug info</p>
+                <p>ctrl+shift+y for 100 cookies</p>
+                <p>ctrl+shift+r for local storage reset</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bottombar">
+        <button class="bottombar-button" data-page="page1">Home</button>
+        <button class="bottombar-button" data-page="page2">Shop</button>
+    </div>
+
+    <script src="js/update.js"></script>
+    <script src="js/ui.js"></script>
+    <script src="js/clicker.js"></script>
+    <script src="js/shop.js"></script>
+    <script src="debug.js"></script>
+    <script src="js/animations.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+button, input, .widget{
+    padding: 10px 10px;
+    border-radius: 16px;
+    transition: filter 0.2s ease, background-color 0.2s ease;
+    appearance: none;
+    font-size: 16px;
+    margin-top: 8px;
+    margin-bottom: 3px;
+    background-color:#45330b;
+    color: aliceblue;
+    border: none;
+    box-shadow: 0 4px 0 #2e2204; 
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    transition: none;
+}
+
+button {
+    cursor: pointer;
+
+    -webkit-tap-highlight-color: transparent; /* Tohle je povinnost, jinak to neuvidíš */
+    transition: transform 0.1s ease, box-shadow 0.1s ease; /* Sjednoceno *-webkit-tap-highlight-color: transparent; /* Tohle je povinnost, jinak to neuvidíš */
+}
+
+button:hover {
+    filter: brightness(1.1);
+}
+
+button:active {
+    box-shadow: 0 0 0 #282828 !important;
+    transform: translateY(4px) !important; /* Tohle je ten tvůj efekt */
+}
+
+input:hover {
+    filter: brightness(1.1);
+}
+
+input:focus {
+    outline: none;
+}
+
+h1 {
+    color: aliceblue;
+    margin-left: 8px;
+    margin-top: 16px;
+    margin-bottom: 3px;
+    font-size: 36px;
+}
+
+.widget {
+    background-color: #483407;
+    width: 100%;
+    display: flex;
+    gap: 8px; /* mezera mezi tlačítky */
+    padding: 0;
+    padding-bottom: 10px;
+    padding-top: 8px;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 0 4px 0 #382803;
+    flex-direction: column;
+}
+
+.widget button {
+    background-color: #9d710a;
+    box-shadow: 0 4px 0 #694b05;
+    margin: 0;
+    color: #1f1806;
+    font-weight: bold;
+}
+
+h2 {
+    margin: 0;
+    color: #ffffff;
+}
+
+p {
+    color: rgb(222, 216, 198);
+}
+
+#cookies-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Aby sušenky neblokovaly klikání na hlavní hru */
+  z-index: -1; /* Aby to bylo ZA hlavní sušenkou */
+  overflow: hidden;
+}
+
+.falling-cookie {
+  position: absolute;
+  top: -50px; /* Začne nad obrazovkou */
+  animation: fall linear forwards;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(110vh) rotate(360deg); /* Spadne dolů a otočí se */
+  }
+}
+
