@@ -14,6 +14,10 @@ const minebutton = document.getElementById("mine");
 const minelabel = document.getElementById("minelabel");
 const minecost = document.getElementById("minecost");
 
+const factorybutton = document.getElementById("factory");
+const factorylabel = document.getElementById("factorylabel");
+const factorycost = document.getElementById("factorycost");
+
 cursorbutton.addEventListener("click", () => {
     let currentCost = 20 + difficulty;
     if (clickvar >= currentCost) {
@@ -44,7 +48,7 @@ farmbutton.addEventListener("click", () => {
         farm++
         difficulty += 50;
         clickvar = clickvar - currentCost;
-        persecond = persecond + 20;
+        persecond = persecond + 10;
 
         updatelabel();
     }
@@ -56,7 +60,19 @@ minebutton.addEventListener("click", () => {
         mine++
         difficulty += 100;
         clickvar = clickvar - currentCost;
-        persecond = persecond + 50;
+        persecond = persecond + 40;
+
+        updatelabel();
+    }
+});
+
+factorybutton.addEventListener("click", () => {
+    let currentCost = 120000 + difficulty; 
+    if (clickvar >= currentCost) {
+        factory++
+        difficulty += 3000;
+        clickvar = clickvar - currentCost;
+        persecond = persecond + 240;
 
         updatelabel();
     }
