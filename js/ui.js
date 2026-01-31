@@ -32,7 +32,14 @@ navButtons.forEach(button => {
 });
 
 const backtohome = document.getElementById("backtohome");
+const backtohome2 = document.getElementById("backtohome2");
 
 backtohome.addEventListener("click", () => {
     location.reload();
+    console.log("Jsi doma!")
+});
+
+backtohome2.addEventListener("click", () => {
+    location.reload();
+    console.log("Jsi doma!")
 });
