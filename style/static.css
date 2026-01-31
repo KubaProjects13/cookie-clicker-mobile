@@ -154,16 +154,6 @@ body {
     padding: 12px;
 }
 
-#shopcontent {
-    padding: 12px;
-    height: 200%;           /* Musí být fixní výška, aby měl obsah kam "přetéct" */
-    overflow-y: auto;        /* Automaticky přidá scrollbar, když je obsahu moc */
-
-    /* Moderní vychytávky pro mobily */
-    -webkit-overflow-scrolling: touch; /* Zajišťuje plynulé "setrvačné" scrollování na iOS */
-    scrollbar-width: thin;   /* Elegantnější scrollbar ve Firefoxu */
-}
-
 .fullwidth {
     width: 100%;
 }
@@ -191,9 +181,10 @@ body {
 
 /* Třída pro zamknutý widget */
 .locked {
-    filter: brightness(0.6); /* Ztmaví kartu na polovinu */
+    filter: brightness(0.2); /* Ztmaví kartu na polovinu */
     pointer-events: none;    /* Zabrání klikání na tlačítka uvnitř */
     cursor: not-allowed;     /* Ukáže přeškrtnutý kruh (na PC) */
+    color: #281e07;
     opacity: 0.7;
 }
 
