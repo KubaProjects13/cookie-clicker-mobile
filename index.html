@@ -3,11 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title id="title">Cookie Clicker</title>
     <link rel="stylesheet" href="style/ui.css">
     <link rel="stylesheet" href="style/static.css">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-capable" content="yes">
+    <title id="titlee">Cookie Clicker</title>
+
+    <link rel="icon" type="image/x-icon" href="img/cookie.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -97,7 +99,7 @@
                 
                 <div class="divwidth">
                     <p id="farmcost">Cost: 1000 Cookies</p>
-                    <p>+20 cookies per second</p>
+                    <p>+10 cookies per second</p>
                 </div>
                 <button id="farm">Buy</button>
             </div>
@@ -109,17 +111,29 @@
                 
                 <div class="divwidth">
                     <p id="minecost">Cost: 12000 Cookies</p>
-                    <p>+50 cookies per second</p>
+                    <p>+40 cookies per second</p>
                 </div>
                 <button id="mine">Buy</button>
+            </div>
+
+            <div class="widget" id="factory-widget">
+                <div class="divwidth">
+                    <h2 id="factorylabel">Factory</h2>
+                </div>
+                
+                <div class="divwidth">
+                    <p id="factorycost">Cost: 120000 Cookies</p>
+                    <p>+240 cookies per second</p>
+                </div>
+                <button id="factory">Buy</button>
             </div>
         </div>
     </div>
 
     <div id="page3" class="page">
         <div class="topbar">
-            <div class="topbar-side">
-                <button class="topbar-button" id="backtohome">Back</button>
+            <div class="topbar-side" id="backtohome2">
+                <button id="backtohome2" class="topbar-button">Back</button>
             </div>
             
             <h1 class="topbar-title">Settings</h1>
@@ -130,9 +144,47 @@
         <div class="content">
             <div class="widget">
                 <h2>DEBUG</h2>
-                <p>ctrl+shift+s for debug info</p>
+                <p>ctrl+shift+s for debug info in console</p>
                 <p>ctrl+shift+y for 100 cookies</p>
                 <p>ctrl+shift+r for local storage reset</p>
+            </div>
+
+            <button class="fullwidth" id="clear" style="background-color: rgb(102, 0, 0); box-shadow: 0 4px 0 #420505; color: #926868;">Clear all data</button>
+        </div>
+    </div>
+
+    <!-- upgrades --> 
+    <div id="page4" class="page">
+        <div class="topbar">
+            <div class="topbar-side">
+                <button class="topbar-button" id="backtohome">Back</button>
+            </div>
+            
+            <h1 class="topbar-title">Upgrades</h1>
+            
+            <div class="topbar-side">
+                <button class="topbar-button nav-button" data-page="page3">Settings</button>
+            </div>
+        </div>
+
+        <div class="content" id="upgradescontent">
+            <div class="divwidth">
+                <span id="labelcounter-upgrades" style="color: #281e07; font-size: 30px;">0</span>
+            </div>
+            <div class="divwidth">
+                <span id="labelper-upgrades" style="color: #3b2d0b;"></span>
+            </div>
+
+            <div class="widget" id="cursor-upgrade-widget">
+                <div class="divwidth">
+                    <h2 id="cursorupgradelabel">Cursor upgrade</h2>
+                </div>
+                
+                <div class="divwidth">
+                    <p id="cursorupgradecost">Cost: 1000 Cookies</p>
+                    <p>+10 cookies per click</p>
+                </div>
+                <button id="cursorupgrade">Upgrade</button>
             </div>
         </div>
     </div>
@@ -140,16 +192,16 @@
     <div class="bottombar">
         <button class="bottombar-button" data-page="page1">Home</button>
         <button class="bottombar-button" data-page="page2">Shop</button>
+        <button class="bottombar-button" data-page="page4">Upgrades</button>
     </div>
 
     <script src="js/update.js"></script>
     <script src="js/ui.js"></script>
     <script src="js/clicker.js"></script>
     <script src="js/shop.js"></script>
+    <script src="js/upgrades.js"></script>
     <script src="debug.js"></script>
     <script src="js/animations.js"></script>
 
 </body>
 </html>
-
-
