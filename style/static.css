@@ -18,6 +18,7 @@ body {
     padding: 0;
     z-index: 1; /* Stránka bude vždy pod barem */
     animation: FadeAnimation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: calc(50px + env(safe-area-inset-top));
 }
 
 @keyframes FadeAnimation {
@@ -81,27 +82,29 @@ body {
 }
 
 .topbar {
-    position: sticky;
+    position: fixed; /* Musí být fixní, aby držel nahoře */
     top: 0;
     left: 0;
     width: 100%;
     
-    background-color: rgba(109, 85, 44, 0.5);
+    /* Pozadí se teď natáhne až pod status bar */
+    background-color: rgba(109, 85, 44, 0.8); 
     -webkit-backdrop-filter: blur(15px);
     backdrop-filter: blur(15px);
     
+    /* VÝŠKA: Původní výška (např. 50px) + horní bezpečný prostor iPhonu */
     height: calc(50px + env(safe-area-inset-top));
+    
+    /* VNITŘNÍ OKRAJ: Obsah (tlačítka) se posune až pod Notch/Island */
     padding-top: env(safe-area-inset-top);
     
-    /* Flexbox nastavení */
     display: flex;
-    align-items: center;
-    justify-content: space-between; /* Roztáhne strany ke krajům */
-    
-    z-index: 100;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+    align-items: center; 
+    justify-content: space-between;
     padding-left: 10px;
     padding-right: 10px;
+    z-index: 1000;
+    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
 }
 
 /* Postranní části baru */
