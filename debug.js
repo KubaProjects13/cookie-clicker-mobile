@@ -1,5 +1,7 @@
 // DEBUG SEKCE
 
+const clearbutton = document.getElementById("clear")
+
 // vsechno smaze
 window.addEventListener("keydown", (event) => {
     // CTRL + SHIFT + R = RESET
@@ -7,6 +9,15 @@ window.addEventListener("keydown", (event) => {
         localStorage.clear(); // Smaže paměť
         location.reload();    // Obnoví stránku
     }
+});
+
+function debugclear() {
+    localStorage.clear(); // Smaže paměť
+    location.reload();    // Obnoví stránku
+};
+
+clearbutton.addEventListener("click", () => {
+    debugclear();
 });
 
 // + 100 cookies
