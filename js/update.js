@@ -3,21 +3,30 @@ function updatelabel() {
     // home a shop labely
     labelhome.textContent = clickvar;
     labelshop.textContent = clickvar;
+    labelupgrades.textContent = clickvar;
+
     labelperhome.textContent = "per click: " + perclick + " - per second: " + persecond;
     labelpershop.textContent = "per click: " + perclick + " - per second: " + persecond;
-    title.textContent = clickvar + " cookies";
+    labelperupgrades.textContent = "per click: " + perclick + " - per second: " + persecond;
+
+    titlee.textContent = clickvar + " cookies";
 
     // shop item labely
     cursorlabel.textContent = "Cursor " + cursor + "x";
     grandmalabel.textContent = "Grandma " + grandma + "x";
     farmlabel.textContent = "Farm " + farm + "x";
     minelabel.textContent = "Mine " + mine + "x";
+    factorylabel.textContent = "Factory " + factory + "x";
 
     // shop item cost labely
     cursorcost.textContent = "Cost: " + (20 + difficulty) + " cookies";
     grandmacost.textContent = "Cost: " + (100 + difficulty) + " cookies";
     farmcost.textContent = "Cost: " + (1000 + difficulty) + " cookies";
     minecost.textContent = "Cost: " + (12000 + difficulty) + " cookies";
+    factorycost.textContent = "Cost: " + (120000 + difficulty) + " cookies";
+
+    // upgrades item labely
+    cursorupgradelabel.textContent = "Cursor upgrade " + cursor + "x";
 
     // --- ZMĚNA 2: Uložení do LocalStorage ---
     // Místo document.cookie použijeme setItem(klíč, hodnota)
@@ -65,4 +74,28 @@ function updatelabel() {
     } else {
         mineWidget.classList.remove("locked");
     }
+
+    // factory
+    let faCost = 120000 + difficulty;
+    if (clickvar < faCost) {
+        factoryWidget.classList.add("locked");
+    } else {
+        factoryWidget.classList.remove("locked");
+    }
+
+    // Kontrola pro zmizení upgradu
+    if (cursorUpgradeBought === 1) {
+        cursorupgradeWidget.style.display = "none";
+    } else {
+        // Logika pro zamykání (jen když ještě není koupeno)
+        let cuCost = 1000 + difficulty;
+        if (clickvar < cuCost) {
+            cursorupgradeWidget.classList.add("locked");
+        } else {
+            cursorupgradeWidget.classList.remove("locked");
+        }
+    }
+    
+    // Uložení stavu do storage
+    localStorage.setItem("cursorUpgradeSave", cursorUpgradeBought);
 }
