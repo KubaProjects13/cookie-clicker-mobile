@@ -16,19 +16,28 @@ let cursor = parseInt(localStorage.getItem("cursorsave")) || 0;
 let grandma = parseInt(localStorage.getItem("grandmasave")) || 0;
 let farm = parseInt(localStorage.getItem("farmsave")) || 0;
 let mine = parseInt(localStorage.getItem("minesave")) || 0;
+let factory = parseInt(localStorage.getItem("factorysave")) || 0;
+
+// Načtení stavu upgradu (0 = nekoupeno, 1 = koupeno)
+let cursorUpgradeBought = parseInt(localStorage.getItem("cursorUpgradeSave")) || 0;
 
 // Reference na elementy
 const img = document.getElementById("clicker");
 const labelhome = document.getElementById("labelcounter-home");
 const labelshop = document.getElementById("labelcounter-shop");
-const title = document.getElementById("title");
+const labelupgrades = document.getElementById("labelcounter-upgrades");
+const titlee = document.getElementById("titlee");
 const labelperhome = document.getElementById("labelper-home");
 const labelpershop = document.getElementById("labelper-shop");
+const labelperupgrades = document.getElementById("labelper-upgrades");
 
 const grandmaWidget = document.getElementById("grandma-widget");
 const cursorWidget = document.getElementById("cursor-widget");
 const farmWidget = document.getElementById("farm-widget");
 const mineWidget = document.getElementById("mine-widget");
+const factoryWidget = document.getElementById("factory-widget");
+
+const cursorupgradeWidget = document.getElementById("cursor-upgrade-widget");
 
 // Stav myši
 let clicked = false;
