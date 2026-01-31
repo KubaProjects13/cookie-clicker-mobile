@@ -102,3 +102,22 @@ p {
   }
 }
 
+#shopcontent {
+    padding: 12px;
+    height: 120%;           /* Musí být fixní výška, aby měl obsah kam "přetéct" */
+    overflow-y: auto;        /* Automaticky přidá scrollbar, když je obsahu moc */
+
+    /* Moderní vychytávky pro mobily */
+    -webkit-overflow-scrolling: touch; /* Zajišťuje plynulé "setrvačné" scrollování na iOS */
+    scrollbar-width: thin;   /* Elegantnější scrollbar ve Firefoxu */
+}
+
+#upgradescontent {
+    padding: 12px;
+    height: 40%;           /* Musí být fixní výška, aby měl obsah kam "přetéct" */
+    overflow-y: auto;        /* Automaticky přidá scrollbar, když je obsahu moc */
+
+    /* Moderní vychytávky pro mobily */
+    -webkit-overflow-scrolling: touch; /* Zajišťuje plynulé "setrvačné" scrollování na iOS */
+    scrollbar-width: thin;   /* Elegantnější scrollbar ve Firefoxu */
+}
