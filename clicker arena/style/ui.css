@@ -141,4 +141,9 @@ p {
 
 .divnybutton:hover {
     filter: brightness(0.9);
+
+}
+
+img {
+    -webkit-touch-callout: none;
 }
