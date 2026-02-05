@@ -1,9 +1,14 @@
 body {
-    height: 100vh;
     background: #121212;
     display: flex;
     justify-content: center;
     align-items: flex-start;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
 }
 
 /* HUD wrapper */
@@ -72,4 +77,5 @@ body {
 
 .shake-25 {
     animation: shake 0.25s infinite;
+
 }
