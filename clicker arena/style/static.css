@@ -1,0 +1,238 @@
+body {
+    background-color: #99835c;
+    font-family: "Google Sans", sans-serif;
+    user-select: none;
+    -webkit-user-select: none;
+    margin: 0; /* Tohle tam přidej! */
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    height: calc(100vh - 85px); /* výška obrazovky minus spodní bar */
+    display: block; /* jen aktivní div se zobrazí */
+    overflow-y: auto;            /* povolí vertikální scroll */
+    -webkit-overflow-scrolling: touch; /* plynulé scrollování na iOS */
+    padding: 0;
+    z-index: 1; /* Stránka bude vždy pod barem */
+    animation: FadeAnimation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    padding-top: calc(90px + env(safe-area-inset-top));
+}
+
+@keyframes FadeAnimation {
+    from {
+        opacity: 0;
+        transform: scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+* {
+    /* Vypne šedé zvýraznění při kliknutí na iPhonu */
+    -webkit-tap-highlight-color: transparent;
+    /* Zajistí, že se text nebude divně zvětšovat při otočení mobilu */
+    -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.bottombar {
+    /* Původní barvu #1b1b1b musíme změnit na RGBA, aby byla průhledná */
+    /* 0.8 znamená 80% neprůhlednost */
+    background-color: rgba(109, 85, 44, 0.5); 
+    
+    /* Tohle je ten klíčový efekt rozmazání pozadí pod barem */
+    -webkit-backdrop-filter: blur(10px); /* Pro Safari na iOS */
+    backdrop-filter: blur(10px);         /* Pro ostatní prohlížeče */
+
+    /* Horní jemná linka, aby bar lépe vynikl (volitelné) */
+    border-top: 0.5px solid rgba(255, 255, 255, 0.1);
+
+    height: 80px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    gap: 6px; /* mezera mezi tlačítky */
+
+    /* iPhone */
+    padding: 0 10px 20px 10px; 
+
+    box-sizing: border-box;
+    z-index: 9999; /* Tohle zajistí, že bar bude vždycky nahoře */
+}
+
+.bottombar-button {
+    white-space: nowrap;
+    flex: 1; 
+    text-align: center;
+    box-sizing: border-box; 
+    margin: 0; 
+    margin-bottom: 4px;
+    height: 40px;
+}
+
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+    background-color: rgba(109, 85, 44, 0.8);
+    backdrop-filter: blur(15px);
+
+    padding-top: env(safe-area-inset-top);
+    z-index: 1000;
+
+    display: flex;
+    flex-direction: column; /* 🔥 DŮLEŽITÉ */
+}
+
+/* HUD wrapper */
+.hud {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HP bar background */
+.level-container {
+    width: 70%;
+    height: 22px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #17415a;
+}
+
+/* Actual HP */
+.level-bar {
+    height: 100%;
+    background: linear-gradient(100deg, #17415a, #3092ca);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Postranní části baru */
+.topbar-side {
+    flex: 1; /* Zabere maximum místa */
+    display: flex;
+    align-items: center;
+}
+
+/* Pravá strana musí tlačítko zarovnat doprava */
+.topbar-side:last-child {
+    justify-content: flex-end;
+}
+
+.topbar-title {
+    color: #281e07;
+    margin: 0;
+    font-size: 28px;
+    font-weight: 600;
+    white-space: nowrap; /* Název se nesmí zalomit */
+    text-align: center;
+    flex: 2; /* Název má víc prostoru než strany, kdyby byl dlouhý */
+}
+
+.topbar-button {
+    height: 30px;
+    margin: 0;
+    padding: 0px 10px;
+}
+
+.topbar-button-disabled {
+    height: 30px;
+    margin: 0;
+    padding: 0px 10px;
+    color: #a9a9a9;
+    background-color:#614810;
+    box-shadow: 0 4px 0 #47350d;
+    cursor: not-allowed;
+}
+
+.topbar-button-disabled:active {
+    box-shadow: 0 4px 0 #47350d !important;
+    transform: translateY(0px) !important; /* Tohle je ten tvůj efekt */
+}
+
+.topbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 50px;
+    padding: 0 10px;
+}
+
+.topbar-row.bottom {
+    height: 40px; /* výška spodní části */
+    justify-content: center; /* nebo space-between */
+    gap: 6px;
+}
+
+.content {
+    padding: 12px;
+}
+
+.fullwidth {
+    width: 100%;
+}
+
+.divwidth {
+    width: 100%;
+    display: flex;
+    justify-content: space-around; 
+    align-items: center;
+    gap: 6px; /* mezera mezi tlačítky */
+    margin: 0;
+    padding: none;
+}
+
+#clicker-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertikální střed */
+    align-items: center;       /* horizontální střed */
+    gap: 20px;
+    
+    /* výška = celá obrazovka minus topbar */
+    height: calc(100vh - 140px - env(safe-area-inset-top)); 
+}
+
+/* Třída pro zamknutý widget */
+.locked {
+    filter: brightness(0.2); /* Ztmaví kartu na polovinu */
+    pointer-events: none;    /* Zabrání klikání na tlačítka uvnitř */
+    cursor: not-allowed;     /* Ukáže přeškrtnutý kruh (na PC) */
+    color: #281e07;
+    opacity: 0.7;
+}
+
+/* Aby kurzor fungoval i na tlačítku, které je "zakázané" */
+.locked button {
+    cursor: not-allowed;
+    background-color: #5e4407;
+    box-shadow: 0 4px 0 #523a04;
+}
+
+.topbar-button-disabled {
+    height: 30px;
+    margin: 0;
+    padding: 0px 10px;
+    color: #a9a9a9;
+    background-color:#614810;
+    box-shadow: 0 4px 0 #47350d;
+    cursor: not-allowed;
+}
