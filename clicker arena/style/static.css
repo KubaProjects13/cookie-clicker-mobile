@@ -11,7 +11,7 @@ body {
 }
 
 .page.active {
-    height: calc(100vh - env(safe-area-inset-bottom));
+    height: calc(100vh - 85px - env(safe-area-inset-bottom));
     display: block;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
@@ -236,3 +236,4 @@ body {
     box-shadow: 0 4px 0 #47350d;
     cursor: not-allowed;
 }
+
