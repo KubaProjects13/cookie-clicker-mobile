@@ -11,12 +11,12 @@ body {
 }
 
 .page.active {
-    height: calc(100vh - 85px); /* výška obrazovky minus spodní bar */
-    display: block; /* jen aktivní div se zobrazí */
-    overflow-y: auto;            /* povolí vertikální scroll */
-    -webkit-overflow-scrolling: touch; /* plynulé scrollování na iOS */
+    height: calc(100vh - env(safe-area-inset-bottom));
+    display: block;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 0;
-    z-index: 1; /* Stránka bude vždy pod barem */
+    z-index: 1;
     animation: FadeAnimation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     padding-top: calc(90px + env(safe-area-inset-top));
 }
@@ -65,7 +65,7 @@ body {
     gap: 6px; /* mezera mezi tlačítky */
 
     /* iPhone */
-    padding: 0 10px 20px 10px; 
+    padding: 0 10px calc(20px + env(safe-area-inset-bottom)) 10px;
 
     box-sizing: border-box;
     z-index: 9999; /* Tohle zajistí, že bar bude vždycky nahoře */
