@@ -11,14 +11,26 @@ body {
 }
 
 .page.active {
-    height: calc(100vh - 85px - env(safe-area-inset-bottom));
+    /* OPRAVA: Výška musí být přes celý displej, aby obsah dosáhl až pod bar */
+    height: 100vh; 
+    /* Pokud chceš být ultra-moderní, můžeš zkusit i: height: 100dvh; */
+
     display: block;
     overflow-y: auto;
     -webkit-overflow-scrolling: touch;
-    padding: 0;
+    
     z-index: 1;
     animation: FadeAnimation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    
+    padding: 0; /* Reset */
+
+    /* Horní odsazení zůstává */
     padding-top: calc(90px + env(safe-area-inset-top));
+
+    /* DŮLEŽITÉ: Místo zmenšování height přidáme padding dolů. 
+       Tím zajistíme, že obsah půjde doscrollovat tak, aby nebyl schovaný pod barem. 
+       85px je výška baru + rezerva. */
+    padding-bottom: calc(85px + env(safe-area-inset-bottom));
 }
 
 @keyframes FadeAnimation {
@@ -236,4 +248,5 @@ body {
     box-shadow: 0 4px 0 #47350d;
     cursor: not-allowed;
 }
+
 
