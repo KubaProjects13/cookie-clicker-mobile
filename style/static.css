@@ -11,14 +11,14 @@ body {
 }
 
 .page.active {
-    height: 100vh; /* výška obrazovky minus spodní bar */
-    display: block; /* jen aktivní div se zobrazí */
-    overflow-y: auto;            /* povolí vertikální scroll */
-    -webkit-overflow-scrolling: touch; /* plynulé scrollování na iOS */
+    height: calc(100vh - 85px - env(safe-area-inset-bottom));
+    display: block;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     padding: 0;
-    z-index: 1; /* Stránka bude vždy pod barem */
+    z-index: 1;
     animation: FadeAnimation 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    padding-top: calc(50px + env(safe-area-inset-top));
+    padding-top: calc(90px + env(safe-area-inset-top));
 }
 
 @keyframes FadeAnimation {
@@ -65,7 +65,7 @@ body {
     gap: 6px; /* mezera mezi tlačítky */
 
     /* iPhone */
-    padding: 0 10px 20px 10px; 
+    padding: 0 10px calc(20px + env(safe-area-inset-bottom)) 10px;
 
     box-sizing: border-box;
     z-index: 9999; /* Tohle zajistí, že bar bude vždycky nahoře */
@@ -82,29 +82,46 @@ body {
 }
 
 .topbar {
-    position: fixed; /* Musí být fixní, aby držel nahoře */
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    
-    /* Pozadí se teď natáhne až pod status bar */
-    background-color: rgba(109, 85, 44, 0.8); 
-    -webkit-backdrop-filter: blur(15px);
+
+    background-color: rgba(109, 85, 44, 0.8);
     backdrop-filter: blur(15px);
-    
-    /* VÝŠKA: Původní výška (např. 50px) + horní bezpečný prostor iPhonu */
-    height: calc(50px + env(safe-area-inset-top));
-    
-    /* VNITŘNÍ OKRAJ: Obsah (tlačítka) se posune až pod Notch/Island */
+
     padding-top: env(safe-area-inset-top);
-    
-    display: flex;
-    align-items: center; 
-    justify-content: space-between;
-    padding-left: 10px;
-    padding-right: 10px;
     z-index: 1000;
-    border-bottom: 0.5px solid rgba(255, 255, 255, 0.1);
+
+    display: flex;
+    flex-direction: column; /* 🔥 DŮLEŽITÉ */
+}
+
+/* HUD wrapper */
+.hud {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HP bar background */
+.level-container {
+    width: 70%;
+    height: 22px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #17415a;
+}
+
+/* Actual HP */
+.level-bar {
+    height: 100%;
+    background: linear-gradient(100deg, #17415a, #3092ca);
+    border-radius: 10px;
+    transition: width 0.3s ease;
 }
 
 /* Postranní části baru */
@@ -148,6 +165,21 @@ body {
 .topbar-button-disabled:active {
     box-shadow: 0 4px 0 #47350d !important;
     transform: translateY(0px) !important; /* Tohle je ten tvůj efekt */
+}
+
+.topbar-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    height: 50px;
+    padding: 0 10px;
+}
+
+.topbar-row.bottom {
+    height: 40px; /* výška spodní části */
+    justify-content: center; /* nebo space-between */
+    gap: 6px;
 }
 
 .content {
@@ -195,18 +227,12 @@ body {
     box-shadow: 0 4px 0 #523a04;
 }
 
-/* Třída pro animaci otáčení */
-.spinning {
-  animation: rotateCookie 20s linear infinite;
-}
-
-@keyframes rotateCookie {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
-}
-
-/* Efekt při kliknutí (trochu se zvětší a zrychlí) */
-.main-cookie:active {
-  transform: scale(1.1) rotate(10deg);
-  transition: 0.1s;
+.topbar-button-disabled {
+    height: 30px;
+    margin: 0;
+    padding: 0px 10px;
+    color: #a9a9a9;
+    background-color:#614810;
+    box-shadow: 0 4px 0 #47350d;
+    cursor: not-allowed;
 }
