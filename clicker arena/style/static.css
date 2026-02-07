@@ -54,18 +54,17 @@ body {
 }
 
 .bottombar {
-    /* Původní barvu #1b1b1b musíme změnit na RGBA, aby byla průhledná */
-    /* 0.8 znamená 80% neprůhlednost */
+    /* Původní barvy a efekty */
     background-color: rgba(109, 85, 44, 0.5); 
-    
-    /* Tohle je ten klíčový efekt rozmazání pozadí pod barem */
-    -webkit-backdrop-filter: blur(10px); /* Pro Safari na iOS */
-    backdrop-filter: blur(10px);         /* Pro ostatní prohlížeče */
-
-    /* Horní jemná linka, aby bar lépe vynikl (volitelné) */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
     border-top: 0.5px solid rgba(255, 255, 255, 0.1);
 
-    height: 80px;
+    /* ZMĚNA: Místo height: 80px dáme auto, aby se bar natáhl podle obsahu */
+    height: auto;
+    /* Můžeme dát min-height, aby nebyl moc úzký */
+    min-height: 80px;
+    
     position: fixed;
     bottom: 0;
     left: 0;
@@ -74,13 +73,17 @@ body {
     display: flex;
     justify-content: space-around; 
     align-items: center;
-    gap: 6px; /* mezera mezi tlačítky */
+    gap: 6px;
 
-    /* iPhone */
-    padding: 0 10px calc(20px + env(safe-area-inset-bottom)) 10px;
+    /* ZMĚNA: Upravil jsem padding. Nahoře dáme trochu víc vzduchu (10px).
+       Dole stačí safe-area + třeba 10px (původních 20px bylo moc). */
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: calc(10px + env(safe-area-inset-bottom));
 
     box-sizing: border-box;
-    z-index: 9999; /* Tohle zajistí, že bar bude vždycky nahoře */
+    z-index: 9999;
 }
 
 .bottombar-button {
@@ -248,5 +251,6 @@ body {
     box-shadow: 0 4px 0 #47350d;
     cursor: not-allowed;
 }
+
 
 
