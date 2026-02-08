@@ -8,11 +8,7 @@ let currentHeight = SkinImg.height || 100;
 
 let hp = 100; // hp protivnika
 
-SkinImg.addEventListener("click", () => {
-    clicked = true;
-});
-
-SkinImg.addEventListener("touchstart", () => {
+SkinImg.addEventListener("pointerdown", () => {
     clicked = true;
 });
 
@@ -113,5 +109,6 @@ if (skin === 2) {
 if (skin === 3) {
     SkinImg.src = "../img/white/cookie 300x300.png";
 };
+
 
 updatefight();
