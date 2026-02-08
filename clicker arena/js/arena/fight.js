@@ -110,5 +110,4 @@ if (skin === 3) {
     SkinImg.src = "../img/white/cookie 300x300.png";
 };
 
-
 updatefight();
