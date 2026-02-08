@@ -8,16 +8,18 @@ const PlayAgainButton = document.getElementById("PlayAgainButton");
 const h2 = resultsWidget.querySelector("h2");
 const p = resultsWidget.querySelector("p");
 const span = resultsWidget.querySelector("span");
+const spanXP = document.getElementById("spanXP");
 
 // obranny mechanismus pokud fight nebyl
 if (FightStarted === 1) {
     // kdyz vyhral
     if (gameover === 0) {
         resultsH1.textContent = "You win!"
-        h2.textContent = "+" + result + " trophies";
+        h2.textContent = "+" + result + " 🏆";
         p.textContent = "Well done, you'r doing best!";
         span.textContent = "+" + gemResult + "💎";
-        ResultsTitle.textContent = "Clicker Arena - " + "+" + result + " trophies";
+        spanXP.textContent = "+5 xp";
+        ResultsTitle.textContent = "Clicker Arena - " + "+" + result + " 🏆";
 
         trophies = trophies + result;
         gems = gems + gemResult;
@@ -28,10 +30,11 @@ if (FightStarted === 1) {
     } else {
         // kdyz prohral
         resultsH1.textContent = "You lose!"
-        h2.textContent = result + " trophies";
+        h2.textContent = result + " 🏆";
         p.textContent = "Be careful next time."
         span.textContent = "+0💎";
-        ResultsTitle.textContent = "Clicker Arena - " + result + " trophies"
+        spanXP.textContent = "-2 xp";
+        ResultsTitle.textContent = "Clicker Arena - " + result + " 🏆";
 
         trophies = trophies - result;
         xp = xp - 2;
