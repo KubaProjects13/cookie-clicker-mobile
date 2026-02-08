@@ -57,4 +57,14 @@ if (canClaimGift()) {
 
 TrophiesSpan.textContent = trophies + "🏆";
 
+document.addEventListener("DOMContentLoaded", () => {
+    const backButtons = document.querySelectorAll(".back-button");
+
+        backButtons.forEach(button => {
+            button.addEventListener("click", () => {
+            location.reload();
+        });
+    });
+});
+
 updateskinonhome();
