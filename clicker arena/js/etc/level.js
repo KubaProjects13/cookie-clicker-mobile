@@ -3,7 +3,7 @@ const levelLabels = document.querySelectorAll(".levelLabel");
 
 function updateLevelBar() {
     levelBars.forEach(levelBar => {
-        levelBar.style.width = xp + "%";
+        levelBar.style.width = xp - levelDifficulty + "%";
     });
 };
 
@@ -13,12 +13,14 @@ function updateLevelLabel() {
     });
 };
 
-if (xp >= 100) {
+if (xp >= 100 + levelDifficulty) {
     level++
     time = time - 2;
-    power = power + 2;
+    power = power + 1;
     gems = gems + 10;
     xp = 0;
+    levelDifficulty = levelDifficulty + 10;
+
     updatestorage();
 
     window.location.href = "etc/levelup.html"
