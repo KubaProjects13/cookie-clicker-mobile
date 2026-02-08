@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <title>Clicker Arena - menu</title>
+    <title>Clicker Arena</title>
     <link rel="stylesheet" href="style/ui.css">
     <link rel="stylesheet" href="style/static.css">
+
+    <link rel="icon" type="image/x-icon" href="img/cookie.ico">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,13 +22,13 @@
         <div class="topbar">
             <div class="topbar-row">
                 <div class="topbar-side">
-                    <button class="topbar-button">Back</button>
-                    </div>
+                    <button class="topbar-button-disabled">Back</button>
+                </div>
 
-                    <h1 class="topbar-title">Shop</h1>
+                <h1 class="topbar-title">Shop</h1>
 
-                    <div class="topbar-side">   
-                    <button class="topbar-button">Settings</button>
+                <div class="topbar-side">   
+                    <button class="topbar-button bottombar-button" data-page="page4" style="flex: 0;">Settings</button>
                 </div>
             </div>
 
@@ -60,13 +62,13 @@
         <div class="topbar">
             <div class="topbar-row">
                 <div class="topbar-side">
-                    <button class="topbar-button">Back</button>
-                    </div>
+                    <button class="topbar-button back-button">Back</button>
+                </div>
 
-                    <h1 class="topbar-title">Shop</h1>
+                <h1 class="topbar-title">Shop</h1>
 
-                    <div class="topbar-side">   
-                    <button class="topbar-button">Settings</button>
+                <div class="topbar-side">   
+                    <button class="topbar-button bottombar-button" data-page="page4" style="flex: 0;">Settings</button>
                 </div>
             </div>
 
@@ -95,13 +97,13 @@
         <div class="topbar">
             <div class="topbar-row">
                 <div class="topbar-side">
-                    <button class="topbar-button">Back</button>
-                    </div>
+                    <button class="topbar-button back-button">Back</button>
+                </div>
 
-                    <h1 class="topbar-title">Skins</h1>
+                <h1 class="topbar-title">Skins</h1>
 
-                    <div class="topbar-side">   
-                    <button class="topbar-button">Settings</button>
+                <div class="topbar-side">   
+                    <button class="topbar-button bottombar-button" data-page="page4" style="flex: 0;">Settings</button>
                 </div>
             </div>
 
@@ -117,6 +119,35 @@
 
         <div class="content">
             <div id="skinsOutput"></div>
+        </div>
+    </div>
+
+    <div id="page4" class="page">
+        <div class="topbar">
+            <div class="topbar-row">
+                <div class="topbar-side">
+                    <button class="topbar-button back-button">Back</button>
+                    </div>
+
+                    <h1 class="topbar-title">Settings</h1>
+
+                    <div class="topbar-side">   
+                    
+                    </div>
+            </div>
+
+            <!-- spodní řada -->
+            <div class="topbar-row bottom">
+                <span class="levelLabel">1</span>
+                <div class="level-container">
+                    <div class="level-bar" style="width: 30%;"></div>
+                </div>
+                <span class="gemsLabel">1000💎</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <p>Work in progress...</p>
         </div>
     </div>
 
