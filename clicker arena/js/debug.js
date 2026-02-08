@@ -18,7 +18,7 @@ window.addEventListener("keydown", (event) => {
 
 // debug info v konzoli
 window.addEventListener("keydown", (event) => {
-    if (event.key.toLowerCase() === "e" && event.ctrlKey && event.shiftKey) {
+    if (event.key.toLowerCase() === "y" && event.ctrlKey) {
         
         console.log("DEBUG:");
         console.log(result + " result");
@@ -29,6 +29,17 @@ window.addEventListener("keydown", (event) => {
         console.log(SkinCollection + " skin-collection");
         console.log(gemResult + " gemResult");
         console.log(gems + " gems");
+        console.log(xp + " xp");
+        console.log(level + " level");
+        console.log(levelDifficulty + " levelDifficulty");
+    }
+});
+
+// auto vyhra
+window.addEventListener("keydown", (event) => {
+    if (event.key.toLowerCase() === "x" && event.ctrlKey) {
+        hp = 0;
+        clicked = true;
     }
 });
 
@@ -70,5 +81,19 @@ window.cmd = function (command) {
         console.log("Done");
         SkinCollection = "1";
         updatestorage();
+    }
+
+    if (command === "gemspls") {
+        console.log("Done");
+        gems = gems + 500;
+        updatestorage();
+        updateGemLabels();
+    }
+
+    if (command === "xppls") {
+        console.log("Done");
+        xp = xp + 50;
+        updatestorage();
+        updateGemLabels();
     }
 };
