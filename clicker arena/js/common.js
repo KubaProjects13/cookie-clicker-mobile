@@ -1,6 +1,7 @@
 let FightStarted = parseInt(localStorage.getItem("FightStarted")) || 0; // 0 je false, 1 je true
 
 let level = parseInt(localStorage.getItem("level")) || 1; // level 1 je default
+let levelDifficulty = parseInt(localStorage.getItem("levelDifficulty")) || 0; // kazdym levelem se navysuje
 let xp = parseInt(localStorage.getItem("xp")) || 0; // level xp
 
 // global
@@ -30,6 +31,7 @@ function updatestorage() {
     localStorage.setItem("gemResult", gemResult);
     localStorage.setItem("level", level);
     localStorage.setItem("xp", xp);
+    localStorage.setItem("levelDifficulty", levelDifficulty);
 };
 
 function removetemp() {
