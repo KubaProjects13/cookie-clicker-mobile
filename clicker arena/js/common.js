@@ -12,7 +12,7 @@ let SkinCollection = localStorage.getItem("skin-collection") || "1"; // 1 je def
 let achievements = localStorage.getItem("achievements") || "";
 
 // pro fight
-let power = parseInt(localStorage.getItem("power")) || 0; // sila, zaklad je nula
+let power = parseFloat(localStorage.getItem("power")) || 0; // sila, zaklad je nula
 let result = parseInt(localStorage.getItem("result")) || 0; // docasna promenena na poharky
 let gemResult = parseInt(localStorage.getItem("gemResult")) || 0; // docasna promenena na gemy
 
