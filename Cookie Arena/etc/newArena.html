@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Cookie Arena - new arena unlocked</title>
+    <link rel="stylesheet" href="../style/ui.css">
+    <link rel="stylesheet" href="../style/static.css">
+
+    <link rel="icon" type="image/x-icon" href="../img/cookie.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+</head>
+<body ontouchstart="">
+
+    <div class="content" style="animation: FadeAnimation 1s cubic-bezier(0.4, 0, 0.2, 1);">
+        <div class="widget" style="text-align: center;">
+            <h2>new arena unlocked!</h2>
+            <p id="fromlevelinfo">wooden</p>
+            <img src="../img/ui/cookies on arena.png" alt="Skin" class="skin-img" style="
+            background-color: rgb(255, 217, 171); 
+            box-shadow: 0 4px 0 #585213;
+            margin: 0;
+            padding: 0;">
+        </div>
+
+        <div class="widget" style="text-align: center;">
+            <h3 style="color: #ffffff; font-size: 24px;">Rewards</h3>
+            <div id="rewards"></div>
+            <button id="gotitButton">got it</button>
+        </div>
+    </div>
+
+    <script src="../js/common.js"></script>
+    <script src="../leveldata.js"></script>
+    <script src="../js/etc/arena.js"></script>
+
+    <script>
+const fromlevellabel = document.getElementById("fromlevelinfo");
+const gotItButton = document.getElementById("gotitButton");
+const rewardsLabel = document.getElementById("rewards");
+
+const data = arenaList[arena];
+rewardsLabel.innerHTML = `
+<p>+${data.gemsPlus}💎 <br>+${data.hpPlus} hp to enemy</p>
+`;
+
+fromlevellabel.textContent = data.name;
+
+gotItButton.addEventListener("click", () => {
+    window.location.href = "../index.html"
+});
+    </script>
+
+    <script src="../js/debug.js"></script>
+
+</body>
+</html>
