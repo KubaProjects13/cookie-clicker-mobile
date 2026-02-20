@@ -1,0 +1,14 @@
+/* Definice animace */
+@keyframes realistic-jump {
+    0% { transform: translateY(0) scale(1, 1); animation-timing-function: ease-out; }
+    15% { transform: translateY(-50px) scale(1, 1); animation-timing-function: ease-in; }
+    30% { transform: translateY(0) scale(1.1, 0.9); } /* Dopad - mírně se rozplácne (širší a nižší) */
+    40% { transform: translateY(0) scale(1, 1); } /* Návrat do normálního tvaru */
+    100% { transform: translateY(0) scale(1, 1); }
+}
+
+/* Třída pro obrázek */
+.bouncing-box {
+    /* Název animace | délka celého cyklu | nekonečné opakování */
+    animation: realistic-jump 2s infinite;
+}
