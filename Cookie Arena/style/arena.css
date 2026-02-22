@@ -1,0 +1,127 @@
+body {
+    background: #121212;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+    overscroll-behavior: none;
+}
+
+/* HUD wrapper */
+.hud {
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* HP bar background */
+.hp-container {
+    width: 100%;
+    height: 22px;
+    background: #2a2a2a;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 2px solid #4b2811;
+}
+
+/* Actual HP */
+.hp-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #4b2811, #ca6d30);
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+/* Text under bar */
+.hp-text {
+    margin-top: 6px;
+    color: #eaeaea;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+}
+
+/* Třída pro animaci otáčení */
+.spinning {
+    --spin-speed: 50s;
+    animation: rotateCookie var(--spin-speed) linear infinite;
+}
+
+@keyframes rotateCookie {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Efekt při kliknutí (trochu se zvětší a zrychlí) */
+.main-cookie:active {
+    transform: scale(1.1) rotate(10deg);
+    transition: 0.1s;
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(-4px, 3px); }
+    50% { transform: translate(4px, -3px); }
+    75% { transform: translate(-3px, -4px); }
+    100% { transform: translate(0, 0); }
+}
+
+.shake-50 {
+    animation: shake 0.50s infinite;
+}
+
+.shake-25 {
+    animation: shake 0.25s infinite;
+}
+
+#arenaImg {
+    position: relative;
+    z-index: 1;
+}
+
+#skins-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Aby sušenky neblokovaly klikání na hlavní hru */
+    z-index: 2; /* Aby to bylo ZA hlavní sušenkou */
+    overflow: hidden;
+}
+
+.falling-cookie {
+    position: absolute;
+    top: -50px; /* Začne nad obrazovkou */
+    animation: fall linear forwards;
+    }
+
+    @keyframes fall {
+    to {
+        transform: translateY(110vh) rotate(360deg); /* Spadne dolů a otočí se */
+    }
+}
+
+.hp-container, .divwidth {
+    position: relative;
+    z-index: 11;
+}
+
+#clicker-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* vertikální střed */
+    align-items: center;       /* horizontální střed */
+    gap: 20px;
+    z-index: 1;
+    position: relative; 
+    z-index: 10; /* Nejvyšší číslo = vždy navrchu */
+    
+    /* výška = celá obrazovka minus topbar */
+    height: calc(100vh - 140px - env(safe-area-inset-top)); 
+}

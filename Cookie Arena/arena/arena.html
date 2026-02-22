@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cookie Arena - fight</title>
+    <link rel="stylesheet" href="../style/ui.css">
+    <link rel="stylesheet" href="../style/static.css">
+    <link rel="stylesheet" href="../style/arena.css">
+
+    <link rel="icon" type="image/x-icon" href="../img/cookie.ico">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-WKE3Y4EZ2R"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-WKE3Y4EZ2R');
+    </script>
+
+</head>
+<body ontouchstart="">
+    <div id="opona"></div>
+    <div class="content" id="arenaImg" style="
+        background-image: url('../img/arena/green\ arena.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        width: 100%;
+        height: 100%;">
+        <div class="hp-container">
+            <div class="hp-bar" style="width: 20%;" id="HpBar"></div>
+        </div>
+        <div class="divwidth">
+            <button class="button-disabled" id="HpLabel">HP: 100/100</button>
+            <button id="timerButton">30</button>
+        </div>
+
+        <div id="clicker-container">
+            <img src="../img/skins/default/cookie 300x300.png" alt="" id="skin-img" class="spinning" height="0px">
+        </div>
+        <div id="skins-container"></div>
+        
+        <div id="notification" style="width: 280px;">
+            <div class="divwidth" style="gap: 8px;">
+                <img src="../img/ui/trophy.png" class="skin-img" style="height: 60px;">
+                <div class="divheight">
+                    <h4>Achievement unlocked!</h4>   
+                    <p id="notificationp">Hello</p>
+                </div>      
+            </div>
+        </div>
+    </div>
+    
+    <script src="../leveldata.js"></script>
+    <script>
+const opona = document.getElementById('opona');
+
+// Roztmívání při startu (bude trvat 2 sekundy)
+window.onload = () => opona.style.opacity = '0';
+    </script>
+    <script src="../js/common.js"></script>
+    <script src="../js/arena/flying.js"></script>
+    <script src="../js/menu/events/eventsFight.js"></script>
+    <script src="../js/arena/fight.js"></script>
+    <script src="../js/etc/arena.js"></script>
+    <script src="../js/arena/common.js"></script>
+    <script>checkBonus(); eventBG();</script>
+    <script src="../js/arena/achievements.js"></script>
+    <script src="../js/debug.js"></script>
+</body>
+</html>
